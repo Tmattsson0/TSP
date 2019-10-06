@@ -10,6 +10,6 @@ public class Main {
 //    for (City c : st.cities) {
 //        System.out.println(c.toString());
 //    }
-        
+
     }
 }
