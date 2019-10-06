@@ -37,8 +37,8 @@ public class Genome implements Comparable {
     private List<City> randomSalesman() {
         List<City> result = new ArrayList<City>();
         for (int i = 0; i < numberOfCities; i++) {
-            if (i != startingCity)
-                result.add(i);
+//            if (i != startingCity)
+//                result.add(i);
         }
         Collections.shuffle(result);
         return result;

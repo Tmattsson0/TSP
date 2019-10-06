@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d1b1d0d-e418-4386-9057-6c83d5ac521d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/Genome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/FileRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/FileRead.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Genome.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Singleton.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -22,12 +24,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="vmOptionsForImporter" value="-Xmx768m" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1RobpvPm90sX4JCScchF06nbEAP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -69,7 +78,7 @@
       <option name="presentableId" value="Default" />
       <updated>1570336582169</updated>
       <workItem from="1570336585283" duration="8889000" />
-      <workItem from="1570347795669" duration="3381000" />
+      <workItem from="1570347795669" duration="7769000" />
     </task>
     <servers />
   </component>

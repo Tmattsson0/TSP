@@ -9,7 +9,7 @@ import java.util.Arrays;
 class FileRead {
     private Singleton singleton = Singleton.getInstance();
 
-    void readFile(String file){
+    void readFile(String file) throws IOException {
 
         try(BufferedReader br = new BufferedReader(new FileReader(file))) {
             StringBuilder sb = new StringBuilder();
@@ -30,6 +30,7 @@ class FileRead {
 
         } catch (IOException e) {
             e.printStackTrace();
+            throw new IOException();
         }
     }
 }
