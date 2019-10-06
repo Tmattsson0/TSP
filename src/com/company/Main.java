@@ -1,6 +1,7 @@
 package com.company;
 
 import com.company.*;
+
 import java.io.IOException;
 import java.util.Arrays;
 import java.io.BufferedReader;
@@ -21,15 +22,26 @@ public class Main {
                 FileRead fr = new FileRead();
                 fr.readFile(st.filePath);
 
+                if (args[1] != null) {
+                    st.populationArg = Integer.parseInt(args[1]);
+                }
+                if (args[2] != null) {
+                    st.fitnessArg = Integer.parseInt(args[2]);
+                }
+
             } catch (IOException e) {
                 System.err.println("File not found! Shutting down");
                 System.exit(1);
+                
+            } catch (NumberFormatException er) {
+                System.err.println("Argument '" + args[1] + "' must be an integer.");
+                System.exit(2);
             }
+
         } else {
             System.err.println("No arguments shutting down...");
-            System.exit(2);
+            System.exit(3);
         }
-
 
 
         //Calculate travel costs to and from all cities
