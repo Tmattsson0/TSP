@@ -32,7 +32,7 @@ public class Main {
             } catch (IOException e) {
                 System.err.println("File not found! Shutting down");
                 System.exit(1);
-                
+
             } catch (NumberFormatException er) {
                 System.err.println("Argument '" + args[1] + "' must be an integer.");
                 System.exit(2);
