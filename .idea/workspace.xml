@@ -6,6 +6,7 @@
       <change beforePath="$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/TSPFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/TSPFileReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Tour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Tour.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -105,13 +106,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java</url>
-          <line>108</line>
+          <line>110</line>
           <option name="timeStamp" value="13" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="15" />
+          <line>30</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

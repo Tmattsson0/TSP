@@ -39,27 +39,20 @@ public class Tour {
     }
 
     public double getDistance() {
-        if(distance == 0){
-            int tourDistance = 0;
+        if (distance == 0.0) {
+            double tourDistance = 0.0;
 
             for (int i = 0; i < tourRoute.size(); i++) {
 
-                City fromCity = getCity(i);
-                City toCity;
-
-                //Make sure we dont go out of bounds
-                if(i + 1 < tourRoute.size()){
-                    toCity = getCity(i + 1);
+                if (i + 1 < tourRoute.size())
+                    tourDistance += tourRoute.get(i).distance(tourRoute.get(i+1));
+                else {
+                    tourDistance += tourRoute.get(i).distance(tourRoute.get(0));
                 }
-                //If last city is reached then toCity is starting city.
-                else{
-                    toCity = getStartingCity();
-                }
-                    tourDistance += fromCity.distance(toCity);
             }
             distance = tourDistance;
         }
-        return distance;
+            return distance;
     }
 
     public boolean isCityInTour(City city){

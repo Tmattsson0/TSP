@@ -20,7 +20,7 @@ class TSPFileReader {
                     System.out.println(line);
                     String[] tempArr = line.split("\\s+");
 
-                    TourManager.addCity(new City(Double.parseDouble(tempArr[2]), Double.parseDouble(tempArr[3])));
+                    TourManager.addCity(new City(Double.parseDouble(tempArr[1]), Double.parseDouble(tempArr[2])));
                 }
                 sb.append(System.lineSeparator());
                 line = br.readLine();
