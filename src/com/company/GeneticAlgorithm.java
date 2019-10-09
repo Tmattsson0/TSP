@@ -80,7 +80,7 @@ public class GeneticAlgorithm {
 
         //Add cities from parent2 to child2 where if there is no conflict.
         for (int i = 0; i < parent2.tourRoute.size(); i++) {
-            if (!child2.isCityInTour(parent2.tourRoute.get(i))){
+            if (!child2.isCityInTour(parent2.tourRoute.get(i)) && (child2.tourRoute.get(i) == null)){
                 child2.tourRoute.set(i, parent2.tourRoute.get(i));
             }
         }
@@ -100,7 +100,7 @@ public class GeneticAlgorithm {
             if (child2.tourRoute.get(i) == null){
                 for (int j = 0; j < parent2.tourRoute.size(); j++) {
                     if (!child2.isCityInTour(parent2.tourRoute.get(j))){
-                        child1.tourRoute.set(i, parent2.tourRoute.get(j));
+                        child2.tourRoute.set(i, parent2.tourRoute.get(j));
                         break;
                     }
                 }

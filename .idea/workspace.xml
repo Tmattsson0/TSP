@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d1b1d0d-e418-4386-9057-6c83d5ac521d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Population.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Tour.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/TourManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/FileRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/TSPFileReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Genome.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Singleton.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/TravelingSalesmanGA.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/TSPFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/TSPFileReader.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -112,10 +105,20 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="8" />
+          <line>108</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="child1.tourRoute.get(1)" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
