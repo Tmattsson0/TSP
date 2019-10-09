@@ -73,7 +73,7 @@ public class Genome implements Comparable {
             return 0;
     }
 
-    private double getFitness() {
+    double getFitness() {
         return fitness;
     }
 

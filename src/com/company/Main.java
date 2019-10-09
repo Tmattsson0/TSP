@@ -21,10 +21,10 @@ public class Main {
                 FileRead fr = new FileRead();
                 fr.readFile(st.filePath);
 
-                if (args[1] != null) {
+                if (args.length > 1) {
                     st.populationArg = Integer.parseInt(args[1]);
                 }
-                if (args[2] != null) {
+                if (args.length > 2) {
                     st.fitnessArg = Integer.parseInt(args[2]);
                 }
 
@@ -42,21 +42,29 @@ public class Main {
             System.exit(3);
         }
 
+        st.startingCity = st.cities.get(0);
 
-        //Calculate travel costs to and from all cities
-        double[][] travelCosts = new double[st.cities.size()][st.cities.size()];
-        for (int i = 0; i < st.cities.size(); i++) {
-            for (int j = 0; j <= i; j++) {
-                if (i == j) {
-                    travelCosts[i][j] = 0.0;
-                } else {
-                    travelCosts[i][j] = st.cities.get(i).distance(st.cities.get(j));
-                    travelCosts[j][i] = travelCosts[i][j];
-                }
-            }
-        }
+        TravelingSalesmanGA geneticAlgorithm = new TravelingSalesmanGA(0);
+        Genome result = geneticAlgorithm.optimize();
+        System.out.println(result);
 
-        System.out.println(Arrays.deepToString(travelCosts));
+
+
+
+//        //Calculate travel costs to and from all cities
+//        double[][] travelCosts = new double[st.cities.size()][st.cities.size()];
+//        for (int i = 0; i < st.cities.size(); i++) {
+//            for (int j = 0; j <= i; j++) {
+//                if (i == j) {
+//                    travelCosts[i][j] = 0.0;
+//                } else {
+//                    travelCosts[i][j] = st.cities.get(i).distance(st.cities.get(j));
+//                    travelCosts[j][i] = travelCosts[i][j];
+//                }
+//            }
+//        }
+
+//        System.out.println(Arrays.deepToString(travelCosts));
 
 //    for (City c : st.cities) {
 //        System.out.println(c.toString());

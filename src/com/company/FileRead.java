@@ -18,7 +18,7 @@ class FileRead {
             while (line != null) {
                 sb.append(line);
                 if(line.matches("^[0-9 ].*$")){
-//                    System.out.println(line);
+                    System.out.println(line);
                     String[] tempArr = line.split("\\s+");
 
                     singleton.cities.add(new City(Double.parseDouble(tempArr[2]), Double.parseDouble(tempArr[3])));

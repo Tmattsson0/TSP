@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Random;
 
 public class TravelingSalesmanGA {
+    private final int reproductionSize;
     private Singleton st = Singleton.getInstance();
 
     private int tournamentSize;
@@ -13,12 +14,39 @@ public class TravelingSalesmanGA {
     private float mutationRate;
     private int generationSize;
 
+    private double targetFitness;
+
+    //Total number of fitness evaluations
+    private int maxIterations = st.fitnessArg;
+
+    public TravelingSalesmanGA(int targetFitness){
+        this.targetFitness = targetFitness;
+        this.genomeSize = st.numberOfCities-1;
+
+
+        generationSize = 5000;
+        reproductionSize = 200;
+        maxIterations = 1000;
+        mutationRate = 0.1f;
+        tournamentSize = 40;
+    }
+
+    public List<Genome> initialPopulation(){
+        List<Genome> population = new ArrayList<>();
+        for(int i=0; i<generationSize; i++){
+            population.add(new Genome(st.numberOfCities, st.startingCity));
+        }
+        return population;
+    }
+
     //Method that selects genomes with a specified selection method
     public List<Genome> selection(List<Genome> population){
         List<Genome> selectedGenomes = new ArrayList<>();
 
+        for (int i = 0; i < reproductionSize; i++) {
         //TournamentSelection
         selectedGenomes.add(tournamentSelection(population));
+        }
 
         return selectedGenomes;
     }
@@ -97,9 +125,9 @@ public class TravelingSalesmanGA {
 
     public Genome optimize() {
         List<Genome> population = initialPopulation();
-        SalesmanGenome globalBestGenome = population.get(0);
+        Genome globalBestGenome = population.get(0);
         for (int i = 0; i < maxIterations; i++) {
-            List<SalesmanGenome> selected = selection(population);
+            List<Genome> selected = selection(population);
             population = createGeneration(selected);
             globalBestGenome = Collections.min(population);
             if (globalBestGenome.getFitness() < targetFitness)
