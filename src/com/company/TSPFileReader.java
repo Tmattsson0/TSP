@@ -6,12 +6,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-class FileRead {
-    private Singleton singleton = Singleton.getInstance();
+class TSPFileReader {
 
-    void readFile(String file) throws IOException {
+    public void readFile(String file) throws IOException {
 
-        try(BufferedReader br = new BufferedReader(new FileReader(file))) {
+        ArrayList<City> cities = new ArrayList<>();
+
+        try(BufferedReader br = new BufferedReader(new java.io.FileReader(file))) {
             StringBuilder sb = new StringBuilder();
             String line = br.readLine();
 
@@ -21,13 +22,11 @@ class FileRead {
                     System.out.println(line);
                     String[] tempArr = line.split("\\s+");
 
-                    singleton.cities.add(new City(Double.parseDouble(tempArr[2]), Double.parseDouble(tempArr[3])));
+                    TourManager.addCity(new City(Double.parseDouble(tempArr[1]), Double.parseDouble(tempArr[2])));
                 }
                 sb.append(System.lineSeparator());
                 line = br.readLine();
             }
-            String everything = sb.toString();
-
         } catch (IOException e) {
             e.printStackTrace();
             throw new IOException();

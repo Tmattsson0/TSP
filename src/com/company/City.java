@@ -12,19 +12,27 @@ class City {
         this.y = y;
     }
 
-    double getX(){
+    public double getX(){
         return this.x;
     }
 
-    double getY(){
+    public double getY(){
         return this.y;
     }
 
-    double distance(City city){
+    public double distance(City city){
         double xDis = abs(getX() - city.x);
         double yDis = abs(getY() - city.y);
 
-        return Math.sqrt((xDis * 2) + (yDis * 2));
+        return Math.sqrt((xDis*xDis) + (yDis*yDis));
+    }
+
+    public boolean isSame(City city){
+        if(city != null) {
+            return getX() == city.x && getY() == city.y;
+        } else {
+            return false;
+        }
     }
 
     @Override

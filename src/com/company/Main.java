@@ -1,31 +1,28 @@
 package com.company;
 
-import com.company.*;
-
-import java.io.IOException;
-import java.util.Arrays;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 
 public class Main {
 
     public static void main(String[] args) {
-        Singleton st = Singleton.getInstance();
 
         //Scanner and argument handling
-        if (args.length > 0) {
+        if (true) {
             try {
-                st.filePath = args[0];
+                //Set the filepath
+//                String filePath = args[0];
+//                String filePath = "/Users/thomasmattsson/Documents/GitHub/TSP/src/com/company/burma14.tsp";
+                String filePath = "/Users/thomasmattsson/Documents/GitHub/TSP/src/com/company/rl1304.tsp";
 
-                FileRead fr = new FileRead();
-                fr.readFile(st.filePath);
+                //Calls readFile that will parse the .tsp into an Arraylist of cities and save it in the TourManager
+                TSPFileReader fr = new TSPFileReader();
+                fr.readFile(filePath);
 
                 if (args.length > 1) {
-                    st.populationArg = Integer.parseInt(args[1]);
+                    int populationArg = Integer.parseInt(args[1]);
                 }
                 if (args.length > 2) {
-                    st.fitnessArg = Integer.parseInt(args[2]);
+                    double fitnessArg = Integer.parseInt(args[2]);
                 }
 
             } catch (IOException e) {
@@ -42,33 +39,20 @@ public class Main {
             System.exit(3);
         }
 
-        st.startingCity = st.cities.get(0);
+        // Initialize population
+        Population pop = new Population(50);
+        System.out.println("Initial distance: " + pop.getFittestTour().getDistance());
 
-        TravelingSalesmanGA geneticAlgorithm = new TravelingSalesmanGA(0);
-        Genome result = geneticAlgorithm.optimize();
-        System.out.println(result);
+        // Evolve population for 100 generations
+        pop = GeneticAlgorithm.evolvePopulation(pop);
+        for (int i = 0; i < 100  ; i++) {
+            pop = GeneticAlgorithm.evolvePopulation(pop);
+        }
 
-
-
-
-//        //Calculate travel costs to and from all cities
-//        double[][] travelCosts = new double[st.cities.size()][st.cities.size()];
-//        for (int i = 0; i < st.cities.size(); i++) {
-//            for (int j = 0; j <= i; j++) {
-//                if (i == j) {
-//                    travelCosts[i][j] = 0.0;
-//                } else {
-//                    travelCosts[i][j] = st.cities.get(i).distance(st.cities.get(j));
-//                    travelCosts[j][i] = travelCosts[i][j];
-//                }
-//            }
-//        }
-
-//        System.out.println(Arrays.deepToString(travelCosts));
-
-//    for (City c : st.cities) {
-//        System.out.println(c.toString());
-//    }
-
+        // Print final results
+        System.out.println("Finished");
+        System.out.println("Final distance: " + pop.getFittestTour().getDistance());
+        System.out.println("Solution:");
+//        System.out.println(pop.getFittestTour());
     }
 }
