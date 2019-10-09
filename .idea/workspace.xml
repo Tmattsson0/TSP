@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d1b1d0d-e418-4386-9057-6c83d5ac521d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/com/company/TravelingSalesmanGA.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/City.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/FileRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/FileRead.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Genome.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Genome.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Singleton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Singleton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/TravelingSalesmanGA.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/TravelingSalesmanGA.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,7 +79,7 @@
       <workItem from="1570336585283" duration="8889000" />
       <workItem from="1570347795669" duration="9189000" />
       <workItem from="1570512347837" duration="1209000" />
-      <workItem from="1570515274848" duration="4993000" />
+      <workItem from="1570515274848" duration="10120000" />
     </task>
     <servers />
   </component>

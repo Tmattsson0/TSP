@@ -37,7 +37,7 @@ public class Genome implements Comparable {
     public List<City> randomSalesman() {
         List<City> result = new ArrayList<City>();
         for (int i = 0; i < numberOfCities; i++) {
-            if(st.cities.get(i).getX() != startingCity.getX() && st.cities.get(i).getY() != startingCity.getY()) {
+            if (st.cities.get(i).getX() != startingCity.getX() && st.cities.get(i).getY() != startingCity.getY()) {
                 result.add(st.cities.get(i));
             }
         }
@@ -64,7 +64,17 @@ public class Genome implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        return 0;
+        Genome genome = (Genome) o;
+        if(this.fitness > genome.getFitness())
+            return 1;
+        else if (this.fitness < genome.getFitness())
+            return -1;
+        else
+            return 0;
+    }
+
+    private double getFitness() {
+        return fitness;
     }
 
     public List<City> getGenome() {

@@ -6,6 +6,7 @@ public class Singleton {
     //Variables
     ArrayList<City> cities = new ArrayList<City>();
     double[][] travelCosts = new double[cities.size()][cities.size()];
+    int numberOfCities = cities.size();
 
     City startingCity;
 
