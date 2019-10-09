@@ -5,13 +5,13 @@ import java.util.Collections;
 import java.util.List;
 
 public class Genome implements Comparable {
-    Singleton st = Singleton.getInstance();
+    private Singleton st = Singleton.getInstance();
 
-    List<City> genome;
-    double[][] travelCost;
-    City startingCity = st.cities.get(0);
-    int numberOfCities;
-    double fitness;
+
+    private List<City> genome;
+    private City startingCity;
+    private int numberOfCities;
+    private double fitness;
 
     // Generates a random salesman
     public Genome(int numberOfCities, City startingCity) {
@@ -34,21 +34,18 @@ public class Genome implements Comparable {
     // Generates a random genome
     // Genomes are permutations of the list of cities, except the starting city
     // so we add them all to a list and shuffle
-    private List<City> randomSalesman() {
+    public List<City> randomSalesman() {
         List<City> result = new ArrayList<City>();
         for (int i = 0; i < numberOfCities; i++) {
-//            if (i != startingCity)
-//                result.add(i);
+            if(st.cities.get(i).getX() != startingCity.getX() && st.cities.get(i).getY() != startingCity.getY()) {
+                result.add(st.cities.get(i));
+            }
         }
         Collections.shuffle(result);
         return result;
     }
 
-
-
-
-
-    public double calculateFitness() {
+    double calculateFitness() {
         double fitness = 0;
         City currentCity = startingCity;
 
@@ -65,12 +62,12 @@ public class Genome implements Comparable {
         return fitness;
     }
 
-
-
-
-
     @Override
     public int compareTo(Object o) {
         return 0;
+    }
+
+    public List<City> getGenome() {
+        return genome;
     }
 }

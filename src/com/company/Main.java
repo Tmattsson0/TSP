@@ -14,7 +14,6 @@ public class Main {
         Singleton st = Singleton.getInstance();
 
         //Scanner and argument handling
-
         if (args.length > 0) {
             try {
                 st.filePath = args[0];

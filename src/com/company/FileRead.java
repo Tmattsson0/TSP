@@ -21,7 +21,7 @@ class FileRead {
 //                    System.out.println(line);
                     String[] tempArr = line.split("\\s+");
 
-                    singleton.cities.add(new City(tempArr[1].trim(), Double.parseDouble(tempArr[2]), Double.parseDouble(tempArr[3])));
+                    singleton.cities.add(new City(Double.parseDouble(tempArr[2]), Double.parseDouble(tempArr[3])));
                 }
                 sb.append(System.lineSeparator());
                 line = br.readLine();
