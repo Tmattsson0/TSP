@@ -7,7 +7,7 @@ import java.util.Set;
 
 public class GeneticAlgorithm {
     //GA parameters
-    private static final double mutationRate = 0.08;
+    private static final double mutationRate = 0.015;
 //    private static final double crossoverRate = 0.78;
     private static final int tournamentSize = 5;
     private static final boolean elitism = true;
@@ -19,7 +19,7 @@ public class GeneticAlgorithm {
         int elitismOffset = 0;
         if (elitism) {
             newPopulation.saveTour(0, pop.getFittestTour());
-            elitismOffset = 3;
+            elitismOffset = 1;
         }
 
         for (int i = elitismOffset; i < newPopulation.populationSize(); i++) {
