@@ -6,6 +6,13 @@
       <change beforePath="$PROJECT_DIR$/src/com/company/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/TSPFileReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Tour.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Tour.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/bier127.tsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/problems/bier127.tsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/burma14.tsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/problems/burma14.tsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/rd100.tsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/problems/rd100.tsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/rl11849.tsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/problems/rl11849.tsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/rl1304.tsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/problems/rl1304.tsp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +40,7 @@
   <component name="ProjectId" id="1RobpvPm90sX4JCScchF06nbEAP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
@@ -81,6 +89,7 @@
       <workItem from="1570347795669" duration="9189000" />
       <workItem from="1570512347837" duration="1209000" />
       <workItem from="1570515274848" duration="10120000" />
+      <workItem from="1570696804778" duration="6383000" />
     </task>
     <servers />
   </component>
@@ -101,15 +110,6 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="child1.tourRoute.get(1)" />

@@ -64,4 +64,14 @@ public class Tour {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
+
+        for (City city : tourRoute) {
+            str.append(city.toString()).append("\n");
+        }
+        return str.toString();
+    }
 }

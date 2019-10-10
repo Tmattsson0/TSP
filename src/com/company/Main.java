@@ -3,56 +3,66 @@ package com.company;
 import java.io.IOException;
 
 public class Main {
+    static int populationArg = 100;
+    private static int generationsArg = 1000;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, InterruptedException {
+        FileManager fm = new FileManager();
+
+        //If not running from commandline put FULL filepath to tsp here.
+        String filePath = "/Users/thomasmattsson/Documents/GitHub/TSP/src/com/company/rl1304.tsp";
 
         //Scanner and argument handling
-        if (true) {
+        if (args.length > 0) {
             try {
                 //Set the filepath
-//                String filePath = args[0];
-                String filePath = "/Users/thomasmattsson/Documents/GitHub/TSP/src/com/company/rl1304.tsp";
-//                String filePath = "/Users/thomasmattsson/Documents/GitHub/TSP/src/com/company/rd100.tsp";
-
-                //Calls readFile that will parse the .tsp into an Arraylist of cities and save it in the TourManager
-                TSPFileReader fr = new TSPFileReader();
-                fr.readFile(filePath);
+                filePath = args[0];
 
                 if (args.length > 1) {
-                    int populationArg = Integer.parseInt(args[1]);
+                    populationArg = Integer.parseInt(args[1]);
                 }
                 if (args.length > 2) {
-                    double fitnessArg = Integer.parseInt(args[2]);
+                    generationsArg = Integer.parseInt(args[2]);
                 }
 
-            } catch (IOException e) {
-                System.err.println("File not found! Shutting down");
-                System.exit(1);
-
             } catch (NumberFormatException er) {
-                System.err.println("Argument '" + args[1] + "' must be an integer.");
+                System.err.println("Arguments must be integers! Shutting down...");
+                er.printStackTrace();
                 System.exit(2);
             }
 
         } else {
-            System.err.println("No arguments shutting down...");
+            System.err.println("No arguments. Shutting down...");
             System.exit(3);
         }
 
-        // Initialize population
-        Population pop = new Population(500);
-        System.out.println("Initial distance: " + pop.getFittestTour().getDistance());
+        //Calls readFile() that will parse the .tsp into an Arraylist of cities and save it in the TourManager
+        fm.readFile(filePath);
 
-        // Evolve population for 100 generations
+        // Initialize population print to user
+        long startTime = System.currentTimeMillis();
+        Population pop = new Population(populationArg);
+        double initialDistance = pop.getFittestTour().getDistance();
+        System.out.printf("\n\nInitial distance: %.2f\n", initialDistance);
+        Thread.sleep(1000);
+        System.out.printf("Size or population = %d. Number of generations = %d\n", populationArg, generationsArg);
+        Thread.sleep(500);
+        System.out.println("Running... Please wait.");
+
+        // Evolve population for x generations
         pop = GeneticAlgorithm.evolvePopulation(pop);
-        for (int i = 0; i < 100  ; i++) {
+        for (int i = 0; i < generationsArg ; i++) {
             pop = GeneticAlgorithm.evolvePopulation(pop);
         }
 
         // Print final results
         System.out.println("Finished");
-        System.out.println("Final distance: " + pop.getFittestTour().getDistance());
-        System.out.println("Solution:");
-//        System.out.println(pop.getFittestTour());
+        System.out.printf("Final distance: %.2f\n", pop.getFittestTour().getDistance());
+        System.out.printf("Route is %.2f%% shorter than before.\n", (initialDistance - pop.getFittestTour().getDistance())/initialDistance*100);
+        fm.csvOut(pop.getFittestTour());
+
+        long endTime = System.currentTimeMillis();
+        long timeElapsed = endTime - startTime;
+        System.out.println("Execution time in seconds: " + timeElapsed/1000);
     }
 }

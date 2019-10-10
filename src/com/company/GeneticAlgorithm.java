@@ -7,15 +7,15 @@ import java.util.Set;
 
 public class GeneticAlgorithm {
     //GA parameters
-    private static final double mutationRate = 0.005;
-    private static final double crossoverRate = 1;
+    private static final double mutationRate = 0.015;
+    private static final double crossoverRate = 0.99;
     private static final boolean elitism = true;
-    private static final int tournamentSize = 250;
+    private static final int tournamentSize = Main.populationArg/2;
 
     public static Population evolvePopulation(Population pop) {
         Population newPopulation = new Population(pop.populationSize());
 
-        // Keep our best individual if elitism is enabled
+        // Keep our best tour if elitism is enabled
         int elitismOffset = 0;
         if (elitism) {
             newPopulation.saveTour(0, pop.getFittestTour());
@@ -41,23 +41,14 @@ public class GeneticAlgorithm {
             mutate(newPopulation.getTours()[i]);
         }
 
-//        //Seeding
-//        for (int i = elitismOffset; i <  newPopulation.populationSize(); i++) {
-//            seed(newPopulation.getTours()[i]);
-//        }
-
         return newPopulation;
     }
-
-//    private static void seed(Tour tour) {
-//
-//    }
 
     //PMX crossover
     private static Tour crossover(Tour parent1, Tour parent2) {
         //Create empty child tour
         Tour child1 = new Tour(false);
-        Tour child2 = new Tour(false);
+//        Tour child2 = new Tour(false);
 
         // Get start and end sub tour positions for parent1's tour
         Random r = new Random();
@@ -74,26 +65,11 @@ public class GeneticAlgorithm {
                 child1.tourRoute.add(null);
             }
         }
-        //Add subsection of parent1 to child2. Add null everywhere else.
-        for (int i = 0; i < parent1.tourRoute.size(); i++) {
-            if(i >= startPos && i <= endPos){
-                child2.tourRoute.add(parent1.tourRoute.get(i));
-            } else {
-                child2.tourRoute.add(null);
-            }
-        }
 
         //Add cities from parent1 to child1 where if there is no conflict.
         for (int i = 0; i < parent1.tourRoute.size(); i++) {
             if (!child1.isCityInTour(parent1.tourRoute.get(i)) && (child1.tourRoute.get(i) == null)){
                 child1.tourRoute.set(i, parent1.tourRoute.get(i));
-            }
-        }
-
-        //Add cities from parent2 to child2 where if there is no conflict.
-        for (int i = 0; i < parent2.tourRoute.size(); i++) {
-            if (!child2.isCityInTour(parent2.tourRoute.get(i)) && (child2.tourRoute.get(i) == null)){
-                child2.tourRoute.set(i, parent2.tourRoute.get(i));
             }
         }
 
@@ -108,25 +84,11 @@ public class GeneticAlgorithm {
                 }
             }
         }
-        for (int i = 0; i < child2.tourRoute.size(); i++) {
-            if (child2.tourRoute.get(i) == null){
-                for (int j = 0; j < parent2.tourRoute.size(); j++) {
-                    if (!child2.isCityInTour(parent2.tourRoute.get(j))){
-                        child2.tourRoute.set(i, parent2.tourRoute.get(j));
-                        break;
-                    }
-                }
-            }
-        }
-        if (Math.random() > 0.5) {
             return child1;
-        } else {
-            return child2;
-        }
     }
 
     private static Tour tournamentSelection(Population pop) {
-        // Create a tournament population
+        // Create a random tournament population
         Population tournament = new Population(tournamentSize);
 
         for (int i = 0; i < tournamentSize; i++) {
@@ -134,11 +96,11 @@ public class GeneticAlgorithm {
             Random r = new Random();
             int randomInt = r.nextInt(pop.populationSize());
 
+            //Compares new tournament population to old population and puts the fittest individual in the tournament.
             if (tournament.tours[i].getFitness() < pop.getTours()[randomInt].getFitness()){
                 tournament.saveTour(i, pop.getTours()[randomInt]);
             }
         }
-
         return tournament.getFittestTour();
     }
 

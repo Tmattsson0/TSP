@@ -7,9 +7,18 @@ class City {
     private double x;
     private double y;
 
+
+    private int name;
+
     City(double x, double y) {
         this.x = x;
         this.y = y;
+    }
+
+    City(double x, double y, int name){
+        this.x = x;
+        this.y = y;
+        this.name = name;
     }
 
     public double getX(){
@@ -18,6 +27,10 @@ class City {
 
     public double getY(){
         return this.y;
+    }
+
+    public int getName() {
+        return name;
     }
 
     public double distance(City city){
@@ -37,6 +50,6 @@ class City {
 
     @Override
     public String toString() {
-        return ("X: " + getX() + ",\t" + "Y: " + getY());
+        return (getName() + ":\tx: " + getX() + ",\t" + "y: " + getY());
     }
 }
