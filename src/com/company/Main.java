@@ -11,8 +11,8 @@ public class Main {
             try {
                 //Set the filepath
 //                String filePath = args[0];
-//                String filePath = "/Users/thomasmattsson/Documents/GitHub/TSP/src/com/company/burma14.tsp";
                 String filePath = "/Users/thomasmattsson/Documents/GitHub/TSP/src/com/company/rl1304.tsp";
+//                String filePath = "/Users/thomasmattsson/Documents/GitHub/TSP/src/com/company/rd100.tsp";
 
                 //Calls readFile that will parse the .tsp into an Arraylist of cities and save it in the TourManager
                 TSPFileReader fr = new TSPFileReader();
@@ -40,7 +40,7 @@ public class Main {
         }
 
         // Initialize population
-        Population pop = new Population(50);
+        Population pop = new Population(500);
         System.out.println("Initial distance: " + pop.getFittestTour().getDistance());
 
         // Evolve population for 100 generations

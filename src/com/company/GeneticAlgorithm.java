@@ -7,10 +7,10 @@ import java.util.Set;
 
 public class GeneticAlgorithm {
     //GA parameters
-    private static final double mutationRate = 0.015;
-//    private static final double crossoverRate = 0.78;
-    private static final int tournamentSize = 5;
+    private static final double mutationRate = 0.005;
+    private static final double crossoverRate = 1;
     private static final boolean elitism = true;
+    private static final int tournamentSize = 250;
 
     public static Population evolvePopulation(Population pop) {
         Population newPopulation = new Population(pop.populationSize());
@@ -27,21 +27,31 @@ public class GeneticAlgorithm {
             Tour parent1 = tournamentSelection(pop);
             Tour parent2 = tournamentSelection(pop);
 
-
-                Tour child1 = crossover(parent1, parent2);
-
-                //Add child to new pop
-                newPopulation.saveTour(i, child1);
-
+                if (Math.random() < crossoverRate) {
+                    Tour child1 = crossover(parent1, parent2);
+                    //Add child to new pop
+                    newPopulation.saveTour(i, child1);
+                } else {
+                    newPopulation.saveTour(i ,parent1);
+                }
         }
 
         //Mutate
-        // Mutate the new population a bit to add some new genetic material
         for (int i = elitismOffset; i < newPopulation.populationSize(); i++) {
             mutate(newPopulation.getTours()[i]);
         }
+
+//        //Seeding
+//        for (int i = elitismOffset; i <  newPopulation.populationSize(); i++) {
+//            seed(newPopulation.getTours()[i]);
+//        }
+
         return newPopulation;
     }
+
+//    private static void seed(Tour tour) {
+//
+//    }
 
     //PMX crossover
     private static Tour crossover(Tour parent1, Tour parent2) {
@@ -108,25 +118,32 @@ public class GeneticAlgorithm {
                 }
             }
         }
-        return child1;
+        if (Math.random() > 0.5) {
+            return child1;
+        } else {
+            return child2;
+        }
     }
 
     private static Tour tournamentSelection(Population pop) {
         // Create a tournament population
         Population tournament = new Population(tournamentSize);
-        // For each place in the tournament get a random candidate tour and
-        // add it
+
         for (int i = 0; i < tournamentSize; i++) {
             // Get a second random position in the tour
             Random r = new Random();
             int randomInt = r.nextInt(pop.populationSize());
-            tournament.saveTour(i, pop.getTours()[randomInt]);
+
+            if (tournament.tours[i].getFitness() < pop.getTours()[randomInt].getFitness()){
+                tournament.saveTour(i, pop.getTours()[randomInt]);
+            }
         }
+
         return tournament.getFittestTour();
     }
 
     private static void mutate(Tour tour) {
-        for(int tourPos1=0; tourPos1 < tour.tourRoute.size(); tourPos1++){
+        for(int tourPos1 = 0; tourPos1 < tour.tourRoute.size(); tourPos1++){
             //Mutation rate
             if(Math.random() < mutationRate){
                 // Get a second random position in the tour

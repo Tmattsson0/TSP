@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="7d1b1d0d-e418-4386-9057-6c83d5ac521d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/City.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/City.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,13 +105,8 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/company/GeneticAlgorithm.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="16" />
+          <line>29</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -21,8 +21,8 @@ class City {
     }
 
     public double distance(City city){
-        double xDis = abs(getX() - city.x);
-        double yDis = abs(getY() - city.y);
+        double xDis = abs(city.x - getX());
+        double yDis = abs(city.y - getY());
 
         return Math.sqrt((xDis*xDis) + (yDis*yDis));
     }
